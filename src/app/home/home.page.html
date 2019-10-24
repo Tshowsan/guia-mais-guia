@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="welcome">
+
+  <ion-card-header>
+    <ion-card-title><h1>Bem vindo ao seu aplicativo de turismo!!</h1></ion-card-title>
+  </ion-card-header> 
+  <ion-card-content>
+    <div class="img">
+      <img src="/assets/images/logo.png" alt=""/>
+    </div>
+  
+    <ion-button (click)="logout()" color="danger" expand="block">
+      Sair
+    </ion-button>
+    <div class="footer-bottom">
+      <h6>Copyright© GuiaMais 2019. Todos os direitos reservados.</h6>
+    </div>
+  </ion-card-content>
+
+</ion-content>
