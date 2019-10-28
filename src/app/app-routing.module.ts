@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule',canActivate:[LoggedGuard] },
   { path: 'guia-cadastrar', loadChildren: './guia-cadastrar/guia-cadastrar.module#GuiaCadastrarPageModule',canActivate:[LoggedGuard] },
   { path: 'reset-password', loadChildren: './reset-password/reset-password.module#ResetPasswordPageModule' },
+  { path: 'perfil-alterar-foto', loadChildren: './pages/perfil-alterar-foto/perfil-alterar-foto.module#PerfilAlterarFotoPageModule',canActivate:[AuthGuard] },
 
   
 ];

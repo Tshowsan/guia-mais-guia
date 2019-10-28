@@ -1,5 +1,7 @@
 {
   "name": "guias",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
