@@ -19,7 +19,6 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-  public ativo: boolean = true;
   public uploadPercert : Observable<number>;
   public downloadUrl: Observable<string>;
   public user: User = {} ;
@@ -47,8 +46,17 @@ export class PerfilPage implements OnInit {
 
   ngOnInit() { 
    
-
   }
+
+  ngOnDestroy() {
+    this.userSubscription.unsubscribe();
+  }
+
+  ativoUpdate(){
+    this.user.plantao = false
+    this.updateUser();
+  }
+  
   loadUser() {
     this.userSubscription = this.authService.getUser(this.authService.getAuth().currentUser.uid).subscribe(data => {
       this.user = data;
@@ -75,51 +83,51 @@ export class PerfilPage implements OnInit {
   this.updateUser();
  }
 
- async openGalery(){
-  const options: CameraOptions = {
-    quality: 100,
-    destinationType: this.camera.DestinationType.FILE_URI,
-    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-    correctOrientation: true
-  };
+//  async openGalery(){
+//   const options: CameraOptions = {
+//     quality: 100,
+//     destinationType: this.camera.DestinationType.FILE_URI,
+//     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+//     correctOrientation: true
+//   };
 
-  try{
-    const fileUrl: string = await this.camera.getPicture(options);
+//   try{
+//     const fileUrl: string = await this.camera.getPicture(options);
 
-    let file: string;
+//     let file: string;
 
-    if(this.platform.is('ios')){
-      file = fileUrl.split('/').pop();
+//     if(this.platform.is('ios')){
+//       file = fileUrl.split('/').pop();
 
-    }else {
-      file = fileUrl.substring(fileUrl.lastIndexOf('/') + 1,fileUrl.indexOf('?'));
-    }
+//     }else {
+//       file = fileUrl.substring(fileUrl.lastIndexOf('/') + 1,fileUrl.indexOf('?'));
+//     }
 
-    const path: string = fileUrl.substring(0, fileUrl.lastIndexOf('/'));
+//     const path: string = fileUrl.substring(0, fileUrl.lastIndexOf('/'));
 
-    const buffer: ArrayBuffer = await this.file.readAsArrayBuffer(path, file);
-    const blob : Blob = new Blob([buffer], { type: 'image/jpeg'});
+//     const buffer: ArrayBuffer = await this.file.readAsArrayBuffer(path, file);
+//     const blob : Blob = new Blob([buffer], { type: 'image/jpeg'});
 
-    this.uploadPicture(blob);
+//     this.uploadPicture(blob);
     
-  }catch(error){
-    console.error(error);
+//   }catch(error){
+//     console.error(error);
 
-  }
- }
+//   }
+//  }
 
- uploadPicture(blob: Blob){
-   const ref = this.asfStorage.ref(this.user.nome);
-   const task = ref.put(blob);
+//  uploadPicture(blob: Blob){
+//    const ref = this.asfStorage.ref(this.user.nome);
+//    const task = ref.put(blob);
 
-   this.uploadPercert = task.percentageChanges();
+//    this.uploadPercert = task.percentageChanges();
 
-   task.snapshotChanges().pipe(
-     finalize(() => this.downloadUrl = ref.getDownloadURL())
+//    task.snapshotChanges().pipe(
+//      finalize(() => this.downloadUrl = ref.getDownloadURL())
 
-   ).subscribe();
+//    ).subscribe();
 
-   this.user.foto = this.downloadUrl;
-   }
+//    this.user.foto = this.downloadUrl;
+//    }
 
 }

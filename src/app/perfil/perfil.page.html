@@ -15,9 +15,13 @@
   <div>
     <ion-item>
         <ion-label>Ativo</ion-label>
-        <ion-toggle [(ngModel)]="user.ativo" (click)="updateUser()"></ion-toggle>
+        <ion-toggle [(ngModel)]="user.ativo" (click)="ativoUpdate()"></ion-toggle>
       </ion-item>
-      <!-- <h1 *ngIf = "ativo">Testes</h1> -->
+
+      <ion-item>
+        <ion-label>Plantão</ion-label>
+        <ion-toggle [(ngModel)]="user.plantao" (click)="updateUser()" [disabled]="!user.ativo == true"></ion-toggle>
+      </ion-item>
      
 </div>
       <ion-item id="rounded">

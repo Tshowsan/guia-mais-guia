@@ -49,54 +49,54 @@ export class PerfilAlterarFotoPage implements OnInit {
     await this.loading.dismiss();
   }
 
-  async openGalery(){
-    await this.presentLoading();
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      correctOrientation: true
-    };
+  // async openGalery(){
+  //   await this.presentLoading();
+  //   const options: CameraOptions = {
+  //     quality: 100,
+  //     destinationType: this.camera.DestinationType.FILE_URI,
+  //     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+  //     correctOrientation: true
+  //   };
   
-    try{
-      const fileUrl: string = await this.camera.getPicture(options);
+  //   try{
+  //     const fileUrl: string = await this.camera.getPicture(options);
   
-      let file: string;
+  //     let file: string;
   
-      if(this.platform.is('ios')){
-        file = fileUrl.split('/').pop();
+  //     if(this.platform.is('ios')){
+  //       file = fileUrl.split('/').pop();
   
-      }else {
-        file = fileUrl.substring(fileUrl.lastIndexOf('/') + 1,fileUrl.indexOf('?'));
-      }
+  //     }else {
+  //       file = fileUrl.substring(fileUrl.lastIndexOf('/') + 1,fileUrl.indexOf('?'));
+  //     }
   
-      const path: string = fileUrl.substring(0, fileUrl.lastIndexOf('/'));
+  //     const path: string = fileUrl.substring(0, fileUrl.lastIndexOf('/'));
   
-      const buffer: ArrayBuffer = await this.file.readAsArrayBuffer(path, file);
-      const blob : Blob = new Blob([buffer], { type: 'image/jpeg'});
+  //     const buffer: ArrayBuffer = await this.file.readAsArrayBuffer(path, file);
+  //     const blob : Blob = new Blob([buffer], { type: 'image/jpeg'});
   
-      this.uploadPicture(blob);
+  //     this.uploadPicture(blob);
       
-    }catch(error){
-      console.error(error);
+  //   }catch(error){
+  //     console.error(error);
   
-    }
-    this.user.foto = this.downloadUrl;
-    await this.loading.dismiss();
-   }
+  //   }
+  //   this.user.foto = this.downloadUrl;
+  //   await this.loading.dismiss();
+  //  }
   
-   uploadPicture(blob: Blob){
-     const ref = this.asfStorage.ref(this.user.nome);
-     const task = ref.put(blob);
+  //  uploadPicture(blob: Blob){
+  //    const ref = this.asfStorage.ref(this.user.nome);
+  //    const task = ref.put(blob);
   
-     this.uploadPercert = task.percentageChanges();
+  //    this.uploadPercert = task.percentageChanges();
   
-     task.snapshotChanges().pipe(
-       finalize(() => this.downloadUrl = ref.getDownloadURL())
+  //    task.snapshotChanges().pipe(
+  //      finalize(() => this.downloadUrl = ref.getDownloadURL())
   
-     ).subscribe();
+  //    ).subscribe();
   
-     }
+  //    }
 
      async presentLoading() {
       this.loading = await this.loadingCtrl.create({ message: 'Aguarde...' });

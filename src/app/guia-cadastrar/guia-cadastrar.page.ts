@@ -42,12 +42,15 @@ export class GuiaCadastrarPage implements OnInit {
     {
       //Cadastrando o guia e autenticação
   const newUser = await this.authService.register(this.user);
-  console.log("Usuario cadastrado com sucesso")
+  // console.log("Usuario cadastrado com sucesso")
   //Adicionando os dados a base de dados
   //Setar campo ativo como defult false
   this.user.ativo = false;
+  this.user.plantao = false;
+  //Setar campo foto como uma imagem defult
+  this.user.foto = "http://3.bp.blogspot.com/_Q8B72nbTfOo/TTEDpzloxqI/AAAAAAAACDg/F7Ziw7jf_4U/s1600/superman-facebook.jpg";
   await this.afs.collection('Guias').doc(newUser.user.uid).set(this.user);
-  console.log("Dados adicionais salvos com sucesso")
+  // console.log("Dados adicionais salvos com sucesso")
   
     }catch (error) {
       console.error(error);

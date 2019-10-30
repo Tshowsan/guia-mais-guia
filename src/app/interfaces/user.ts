@@ -9,5 +9,6 @@ export interface User {
     linguas?: string;
     password?: string;
     ativo?: boolean;
-    foto?: Observable<string>;
+    plantao?: boolean;
+    foto?: string;
 }
