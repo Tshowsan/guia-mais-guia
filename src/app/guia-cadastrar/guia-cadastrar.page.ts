@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController, IonItem } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from 'src/app/services/auth.service';
@@ -16,12 +16,14 @@ export class GuiaCadastrarPage implements OnInit {
 
   private loading: any;
   private user: User = {};
-  
  
+  public form : NgForm;
+  
+  public guiaCadastrarForm: FormGroup;
 
   constructor(
     public router: Router,
-    
+    private formBuilder: FormBuilder,
     public loadingController: LoadingController,
     private authService: AuthService,
     private loadingCtrl: LoadingController,
@@ -29,8 +31,44 @@ export class GuiaCadastrarPage implements OnInit {
     private afa: AngularFireAuth,
     private afs: AngularFirestore
    
-  ) { }
-
+  ) {
+    this.guiaCadastrarForm = this.formBuilder.group({
+      'nome': [null, Validators.compose([
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(30) 
+      ])],
+      'sobrenome': [null, Validators.compose([
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(30) 
+      ])],
+      'email':  [null, Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$') 
+      ])],
+      'password': [null, Validators.compose([
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(12) 
+      ])],
+      'cadastur': [null, Validators.compose([
+        Validators.required,
+        Validators.maxLength(14) 
+        
+      ])],
+      'linguas': [null, Validators.compose([
+        Validators.required,
+        
+      ])],
+      'telefone': [null, Validators.compose([
+        Validators.required, 
+        Validators.maxLength(12) 
+        
+        //Validators.pattern('^\\([0-9]{2}\\)((3[0-9]{3}-[0-9]{4})|(9[0-9]{3}-[0-9]{5}))$')
+      ])]
+    })
+   }
   ngOnInit() {
     // this.cadastrarUsuario();
   }
@@ -48,7 +86,7 @@ export class GuiaCadastrarPage implements OnInit {
   this.user.ativo = false;
   this.user.plantao = false;
   //Setar campo foto como uma imagem defult
-  this.user.foto = "http://3.bp.blogspot.com/_Q8B72nbTfOo/TTEDpzloxqI/AAAAAAAACDg/F7Ziw7jf_4U/s1600/superman-facebook.jpg";
+  this.user.foto = "https://www.google.com/search?q=persona&rlz=1C1SQJL_pt-BRBR861BR861&sxsrf=ACYBGNQtXv8_KfFtFUQaSlELdjEiGj1y5Q:1573074043659&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjmoc-8vdblAhWeIrkGHQ5eAh8Q_AUIEigB&biw=1366&bih=657#imgrc=ggkbksYm9fCrTM:";
   await this.afs.collection('Guias').doc(newUser.user.uid).set(this.user);
   // console.log("Dados adicionais salvos com sucesso")
   

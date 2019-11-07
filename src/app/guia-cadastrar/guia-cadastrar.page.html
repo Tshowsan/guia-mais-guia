@@ -1,62 +1,92 @@
 <ion-header>
-  <ion-toolbar color="secondary">
-    <ion-title> Cadastro de Usuário </ion-title>
+  <ion-toolbar color="primary">
+   <!--  <ion-title> Cadastro de Usuário </ion-title> -->
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/login"></ion-back-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card> 
-    <div id="img-card">
-        <img src="/assets/images/logo.png">
-    </div>
-      
-      <ion-list padding>
 
-        <ion-item id="rounded">
-          <ion-label position="floating">Nome</ion-label>
-          <ion-input type="text" [(ngModel)]="user.nome"></ion-input>
-        </ion-item>
+    
+    <form [formGroup]="guiaCadastrarForm">
 
-        <ion-item id="rounded">
-          <ion-label position="floating">Sobrenome</ion-label>
-          <ion-input type="text" [(ngModel)]="user.sobrenome"></ion-input>
-        </ion-item>
+        <ion-card class="cadastrar-form ion-padding">
+    
+          <span><p>Cadastro</p></span>
+    
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-icon name="create" slot="end"></ion-icon>
+            <ion-input type="text" placeholder="Nome" formControlName="nome" [(ngModel)]="user.nome"></ion-input>
+            <div class="errors" *ngIf="guiaCadastrarForm.controls.nome.errors">
+              <h6 *ngIf="guiaCadastrarForm.controls.nome.errors.required"></h6>
+              <h6 *ngIf="guiaCadastrarForm.controls.nome.errors.minlength">O Nome deve conter no minimo 2 caracteres</h6>
+              <h6 *ngIf="guiaCadastrarForm.controls.nome.errors.maxlength">O Nome deve conter no maximo 50 caracteres</h6>
+            </div>
+          </ion-item>
 
-        <ion-item id="rounded">
-          <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" [(ngModel)]="user.email"></ion-input>
-        </ion-item>
-   
-        <ion-item id="rounded">
-          <ion-label position="floating">Telefone</ion-label>
-          <ion-input type="phone" [(ngModel)]="user.telefone"></ion-input>
-        </ion-item>
-
-        <ion-item id="rounded">
-          <ion-label position="floating">Cadastur</ion-label>
-          <ion-input type="text" [(ngModel)]="user.cadastur"></ion-input>
-        </ion-item>
-
-        <ion-item id="rounded">
-          <ion-label position="floating">Linguas</ion-label>
-          <ion-input type="text" [(ngModel)]="user.linguas"></ion-input>
-        </ion-item>
-
-        <ion-item id="rounded">
-          <ion-label position="floating">Senha</ion-label>
-          <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-        </ion-item>
-
-        <ion-item id="rounded">
-          <ion-label position="floating">Foto</ion-label>
-          <ion-input type="text" [(ngModel)]="user.foto"></ion-input>
-        </ion-item>
-
-      </ion-list>
-
-      <ion-button shape="round" expand="full" color="success" (click)="register()">
-          Cadastrar
-      </ion-button>
-
-  </ion-card>
+          <ion-item class="ion-margin-top" lines="none">
+              <ion-icon name="create" slot="end"></ion-icon>
+              <ion-input type="text" placeholder="Sobrenome" formControlName="sobrenome" [(ngModel)]="user.sobrenome"></ion-input>
+              <div class="errors" *ngIf="guiaCadastrarForm.controls.sobrenome.errors">
+                <h6 *ngIf="guiaCadastrarForm.controls.sobrenome.errors.required"></h6>
+                <h6 *ngIf="guiaCadastrarForm.controls.sobrenome.errors.minlength">O Sobrenome deve conter no minimo 2 caracteres</h6>
+                <h6 *ngIf="guiaCadastrarForm.controls.sobrenome.errors.maxlength">O Sobrenome deve conter no maximo 50 caracteres</h6>
+              </div>
+            </ion-item>
+    
+          <ion-item class="ion-margin-top"  lines="none">
+            <ion-icon name="mail" slot="end"></ion-icon>
+            <ion-input type="email" placeholder="E-mail" formControlName="email" [(ngModel)]="user.email"></ion-input>
+            <div class="errors" *ngIf="guiaCadastrarForm.controls.email.errors">
+              <h6 *ngIf="guiaCadastrarForm.controls.email.errors.required"></h6>
+              <h6 *ngIf="guiaCadastrarForm.controls.email.errors.pattern">E-mail inválido</h6>
+            </div>
+          </ion-item>
+    
+          <ion-item class="ion-margin-top" lines="none">
+            <ion-icon name="call" slot="end"></ion-icon>
+            <ion-input type="phone" placeholder="Telefone" formControlName="telefone" [(ngModel)]="user.telefone"></ion-input>
+            <div class="errors" *ngIf="guiaCadastrarForm.controls.telefone.errors">
+              <h6 *ngIf="guiaCadastrarForm.controls.telefone.errors.required"></h6>
+              <h6 *ngIf="guiaCadastrarForm.controls.telefone.errors.maxlength">O Telefone deve conter no maximo 12 caracteres</h6>
+              <!-- <h6 *ngIf="usuarioCadastrarForm.controls.telefone.errors.pattern">Telefone inválido</h6> -->
+            </div>
+          </ion-item>
+    
+          <ion-item class="ion-margin-top" lines="none">
+              <ion-icon name="create" slot="end"></ion-icon>
+              <ion-input type="text" placeholder="Cadastur" formControlName="cadastur" [(ngModel)]="user.cadastur"></ion-input>
+              <div class="errors" *ngIf="guiaCadastrarForm.controls.cadastur.errors">
+                <h6 *ngIf="guiaCadastrarForm.controls.cadastur.errors.required"></h6>
+                <h6 *ngIf="guiaCadastrarForm.controls.cadastur.errors.maxlength">O Cadastur deve conter no maximo 14 caracteres</h6>
+              </div>
+            </ion-item>
+            <ion-item class="ion-margin-top" lines="none">
+                <ion-icon name="create" slot="end"></ion-icon>
+                <ion-input type="text" placeholder="Linguas" formControlName="linguas" [(ngModel)]="user.linguas"></ion-input>
+                <div class="errors" *ngIf="guiaCadastrarForm.controls.linguas.errors">
+                  <h6 *ngIf="guiaCadastrarForm.controls.linguas.errors.required"></h6>
+                  <h6 *ngIf="guiaCadastrarForm.controls.linguas.errors.minlength">O Nome deve conter no minimo 2 caracteres</h6>
+                  <h6 *ngIf="guiaCadastrarForm.controls.linguas.errors.maxlength">O Nome deve conter no maximo 50 caracteres</h6>
+                </div>
+              </ion-item>
+          <ion-item class="ion-margin-top" lines="none">
+              <ion-icon name="key" slot="end"></ion-icon>
+                  <ion-input type="password" placeholder="Senha" formControlName="password" [(ngModel)]="user.password"></ion-input>
+             <div class="errors" *ngIf="guiaCadastrarForm.controls.password.errors">
+                <h6 *ngIf="guiaCadastrarForm.controls.password.errors.required"></h6>
+                <h6 *ngIf="guiaCadastrarForm.controls.password.errors.minlength">A senha deve conter no minimo 6 caracteres</h6>
+                <h6 *ngIf="guiaCadastrarForm.controls.password.errors.maxlength">A senha deve conter no maximo 12 caracteres</h6>
+              </div>
+            </ion-item>
+    
+          <ion-button class="ion-margin-top" expand="block" color="light" (click)="register()" [disabled]="!guiaCadastrarForm.valid">
+              Cadastrar
+          </ion-button>
+    
+        </ion-card>
+    
+      </form>
 </ion-content>

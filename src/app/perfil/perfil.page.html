@@ -1,17 +1,20 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>perfil</ion-title>
+  <ion-toolbar color="primary">
+   <!--  <ion-title> Cadastro de Usuário </ion-title> -->
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-card>
+    <ion-avatar slot="start" button [routerLink]="['/perfil-alterar-foto']">
+      <img [src]="user.foto">
+    </ion-avatar>
+  <ion-card class="card-form ion-padding">
 
-    <ion-list padding>
+    <span><p>Perfil</p></span>
 
-        <ion-avatar slot="start" button [routerLink]="['/perfil-alterar-foto']">
-            <img [src]="user.foto">
-          </ion-avatar>
+       
   <div>
     <ion-item>
         <ion-label>Ativo</ion-label>
@@ -30,6 +33,11 @@
       </ion-item>
 
       <ion-item id="rounded">
+        <ion-label position="floating">Sobrenome</ion-label>
+        <ion-input type="text" [(ngModel)]="user.sobrenome" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item id="rounded">
         <ion-label position="floating">Email</ion-label>
         <ion-input type="text" [(ngModel)]="user.email" disabled="true"></ion-input>
       </ion-item>
@@ -39,9 +47,29 @@
         <ion-input type="string" [(ngModel)]="user.telefone" disabled="true"></ion-input>
       </ion-item>
 
-     
+      <ion-item id="rounded">
+        <ion-label position="floating">Cadastur</ion-label>
+        <ion-input type="string" [(ngModel)]="user.cadastur" disabled="true"></ion-input>
+      </ion-item>
 
-    </ion-list>
+      <ion-item id="rounded">
+        <ion-label position="floating">Linguas</ion-label>
+        <ion-input type="string" [(ngModel)]="user.linguas" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item id="rounded">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="string" [(ngModel)]="user.password" disabled="true"></ion-input>
+      </ion-item>
+
+    
+      <ion-button class="ion-margin-top" [routerLink]="['/editar-perfil']" color="light" expand="block">
+          Editar Perfil
+      </ion-button>
+     
+    
+
+    
 
    
     

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController, PopoverController } from '@ionic/angular';
+import { SettingsComponent } from '../components/settings/settings.component';
+import { dismiss } from '@ionic/core/dist/types/utils/overlays';
+
 
 @Component({
   selector: 'app-home',
@@ -14,9 +17,23 @@ export class HomePage {
   constructor(
     private authService: AuthService,
     private loadingCtrl: LoadingController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private popoverCtrl: PopoverController
+ 
   ) {}
+  async mostrarOpcoes(ev: any) {
+    const popover = await this.popoverCtrl.create({
+      component: SettingsComponent,
+      event: ev,
+      animated: true,
+      mode: 'ios',
+      showBackdrop: true
+      
+    });
 
+      return await popover.present();
+
+  }
   async logout() {
     await this.presentLoading();
 
@@ -38,4 +55,5 @@ export class HomePage {
     const toast = await this.toastCtrl.create({ message, duration: 2000 });
     toast.present();
   }
+
 }

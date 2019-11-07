@@ -18,17 +18,22 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
+import { IonMaskModule } from '@pluritech/ion-mask';
+import {NgxMaskIonicModule} from 'ngx-mask-ionic';
+import { SettingsComponent } from './components/settings/settings.component';
+
 
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, SettingsComponent],
+  entryComponents: [SettingsComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule ,
+    NgxMaskIonicModule.forRoot(),
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule],
