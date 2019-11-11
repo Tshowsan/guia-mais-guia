@@ -1,0 +1,14 @@
+<ion-card>
+<h3>Média das Avaliações</h3>
+
+{{ avgRating | async }}
+
+
+<h3>Avaliações</h3>
+<div *ngFor="let star of stars | async">
+
+  "{{ star.userName }}" deu a "{{ star.guiaName }}" {{ star.value }} estrelas.
+
+</div>
+
+</ion-card>

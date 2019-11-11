@@ -18,6 +18,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
+import { ShareModule } from './share.module';
 
 
 @NgModule({
@@ -31,7 +32,9 @@ import { File } from '@ionic-native/file/ngx';
     AngularFireDatabaseModule ,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule],
+    AngularFireAuthModule,
+    ShareModule
+  ],
   
   providers: [
     StatusBar,
