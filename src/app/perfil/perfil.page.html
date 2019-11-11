@@ -1,17 +1,20 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>perfil</ion-title>
+  <ion-toolbar color="primary">
+   <!--  <ion-title> Cadastro de Usuário </ion-title> -->
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-card>
+    <ion-avatar slot="start" button [routerLink]="['/perfil-alterar-foto']">
+      <img [src]="user.foto">
+    </ion-avatar>
+  <ion-card class="card-form ion-padding">
 
-    <ion-list padding>
+    <span><p>Perfil</p></span>
 
-        <ion-avatar slot="start" button [routerLink]="['/perfil-alterar-foto']">
-            <img [src]="user.foto">
-          </ion-avatar>
+       
   <div>
     <ion-item>
         <ion-label>Ativo</ion-label>
@@ -27,6 +30,11 @@
       <ion-item id="rounded">
         <ion-label position="floating">Nome</ion-label>
         <ion-input type="text" [(ngModel)]="user.nome" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item id="rounded">
+        <ion-label position="floating">Sobrenome</ion-label>
+        <ion-input type="text" [(ngModel)]="user.sobrenome" disabled="true"></ion-input>
       </ion-item>
 
       <ion-item id="rounded">

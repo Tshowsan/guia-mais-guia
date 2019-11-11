@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Editar perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-card>
+
+    <ion-list padding>
+
+      <ion-item id="nome">
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input  type="text" [(ngModel)]="user.nome"></ion-input>
+      </ion-item>
+
+      <ion-item id="rounded">
+        <ion-label position="floating">Sobrenome</ion-label>
+        <ion-input type="text" [(ngModel)]="user.sobrenome"></ion-input>
+      </ion-item>
+ 
+      <ion-item id="rounded">
+        <ion-label position="floating">Telefone</ion-label>
+        <ion-input  mask="(00) 0000-00000" maxlength="15" type="phone" [(ngModel)]="user.telefone"></ion-input>
+      </ion-item>
+
+      <ion-item id="rounded">
+        <ion-label position="floating">Cadastur</ion-label>
+        <ion-input type="text" [(ngModel)]="user.cadastur"></ion-input>
+      </ion-item>
+
+      <ion-item id="rounded">
+        <ion-label position="floating">Linguas</ion-label>
+        <ion-input type="text" [(ngModel)]="user.linguas"></ion-input>
+      </ion-item>
+
+      <ion-button  (click)="updateUser()" shape="round" expand="expand" color="success" [routerLink]="['/perfil']">
+        Alterar
+    </ion-button>
+
+    </ion-list>
+
+</ion-card>
+
+</ion-content>

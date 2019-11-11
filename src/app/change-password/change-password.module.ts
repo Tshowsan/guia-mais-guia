@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { GuiaCadastrarPage } from './guia-cadastrar.page';
-import {NgxMaskIonicModule} from 'ngx-mask-ionic'
+import { ChangePasswordPage } from './change-password.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: GuiaCadastrarPage
+    component: ChangePasswordPage
   }
 ];
 
@@ -19,11 +18,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    NgxMaskIonicModule,
     IonicModule,
-    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [GuiaCadastrarPage]
+  declarations: [ChangePasswordPage]
 })
-export class GuiaCadastrarPageModule {}
+export class ChangePasswordPageModule {}

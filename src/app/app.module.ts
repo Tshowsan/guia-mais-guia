@@ -19,17 +19,19 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { ShareModule } from './share.module';
+import { SettingsComponent } from './components/settings/settings.component';
 
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, SettingsComponent],
+  entryComponents: [SettingsComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule ,
+    // NgxMaskIonicModule.forRoot(),
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,

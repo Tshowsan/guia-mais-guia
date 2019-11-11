@@ -37,7 +37,20 @@ export class LoginPage implements OnInit {
       console.log("logado com sucesso")
     this.router.navigate(['home'])
     } catch (error) {
-      this.presentToast(error.message);
+      console.error(error);
+      let message: string;
+      switch(error.code){
+          case 'auth/invalid-email':
+              message = 'e-mail inválido';
+              break;
+              case 'auth/argument-error':
+                message = 'informe e-mail e senha cadastrados';
+              
+                break;
+              
+      }
+    
+      this.presentToast(message);
     } finally {
       this.loading.dismiss();
     }
@@ -54,7 +67,8 @@ export class LoginPage implements OnInit {
   }
 
   async presentToast(message: string) {
-    const toast = await this.toastCtrl.create({ message, duration: 2000 });
+    const toast = await this.toastCtrl.create({ message, duration: 3000 });
     toast.present();
   }
 }
+
