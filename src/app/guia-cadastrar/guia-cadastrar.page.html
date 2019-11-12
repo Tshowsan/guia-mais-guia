@@ -22,7 +22,7 @@
             <div class="errors" *ngIf="guiaCadastrarForm.controls.nome.errors">
               <h6 *ngIf="guiaCadastrarForm.controls.nome.errors.required"></h6>
               <h6 *ngIf="guiaCadastrarForm.controls.nome.errors.minlength">O Nome deve conter no minimo 2 caracteres</h6>
-              <h6 *ngIf="guiaCadastrarForm.controls.nome.errors.maxlength">O Nome deve conter no maximo 50 caracteres</h6>
+              <h6 *ngIf="guiaCadastrarForm.controls.nome.errors.maxlength">O Nome deve conter no maximo 30 caracteres</h6>
             </div>
           </ion-item>
 
@@ -32,7 +32,7 @@
               <div class="errors" *ngIf="guiaCadastrarForm.controls.sobrenome.errors">
                 <h6 *ngIf="guiaCadastrarForm.controls.sobrenome.errors.required"></h6>
                 <h6 *ngIf="guiaCadastrarForm.controls.sobrenome.errors.minlength">O Sobrenome deve conter no minimo 2 caracteres</h6>
-                <h6 *ngIf="guiaCadastrarForm.controls.sobrenome.errors.maxlength">O Sobrenome deve conter no maximo 50 caracteres</h6>
+                <h6 *ngIf="guiaCadastrarForm.controls.sobrenome.errors.maxlength">O Sobrenome deve conter no maximo 30 caracteres</h6>
               </div>
             </ion-item>
     
@@ -47,7 +47,7 @@
     
           <ion-item class="ion-margin-top" lines="none">
             <ion-icon name="call" slot="end"></ion-icon>
-            <ion-input type="phone" placeholder="Telefone" formControlName="telefone" [(ngModel)]="user.telefone"></ion-input>
+            <ion-input type="number" placeholder="Telefone" formControlName="telefone" [(ngModel)]="user.telefone"></ion-input>
             <div class="errors" *ngIf="guiaCadastrarForm.controls.telefone.errors">
               <h6 *ngIf="guiaCadastrarForm.controls.telefone.errors.required"></h6>
               <h6 *ngIf="guiaCadastrarForm.controls.telefone.errors.maxlength">O Telefone deve conter no maximo 12 caracteres</h6>

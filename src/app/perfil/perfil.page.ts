@@ -50,6 +50,7 @@ export class PerfilPage implements OnInit {
 
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
+    this.limpar();
   }
 
   ativoUpdate(){
@@ -82,6 +83,11 @@ export class PerfilPage implements OnInit {
  change() {
   this.updateUser();
  }
+
+ limpar(){
+  this.user = null;
+}
+
 
 //  async openGalery(){
 //   const options: CameraOptions = {

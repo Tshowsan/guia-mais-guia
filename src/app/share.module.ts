@@ -1,3 +1,4 @@
+import { CommentsComponent } from './components/comments/comments.component';
 import { StarReviewComponent } from './components/star-review/star-review.component';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
@@ -11,7 +12,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
 
   ],
-  declarations: [StarReviewComponent,],
-  exports:[StarReviewComponent,]
+  declarations: [StarReviewComponent,CommentsComponent],
+  exports:[StarReviewComponent,CommentsComponent]
 })
 export class ShareModule {}

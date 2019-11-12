@@ -40,14 +40,15 @@ export class LoginPage implements OnInit {
       console.error(error);
       let message: string;
       switch(error.code){
-          case 'auth/invalid-email':
-              message = 'e-mail inválido';
+        case 'auth/argument-error':
+          message = 'e-mail ou senha invalidos';
+          break;
+          case 'auth/wrong-password':
+              message = 'Senha incorreta';
               break;
-              case 'auth/argument-error':
-                message = 'informe e-mail e senha cadastrados';
-              
+              case 'auth/user-not-found':
+                message = 'e-mail não cadastrado';
                 break;
-              
       }
     
       this.presentToast(message);

@@ -73,6 +73,10 @@ export class GuiaCadastrarPage implements OnInit {
     // this.cadastrarUsuario();
   }
 
+  ngOnDestroy() {
+    this.limpar();
+  }
+
   async register(){
     
     await this.presentLoading();
@@ -121,6 +125,10 @@ export class GuiaCadastrarPage implements OnInit {
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({ message, duration: 2000 });
     toast.present();
+  }
+
+  limpar() {
+    this.guiaCadastrarForm.reset();
   }
 
 }
