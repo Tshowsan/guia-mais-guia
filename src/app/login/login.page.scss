@@ -1,0 +1,53 @@
+ion-content {
+    --background: linear-gradient(207deg, rgba(226, 139, 29, 1) 0%, rgba(255, 224, 1, 1) 84%);
+}
+
+.logo {
+    width: 40%;
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
+
+.img-center {
+    display: flex;
+    justify-content: center;
+}
+
+ion-item {
+    --background: rgba(0, 0, 0, 0);
+    --detail-icon-color: #fff;
+    --border-color: #fff;
+    --color-activated: #fff;
+    --color-focused: #fff;
+    --highlight-color-focused: #fff;
+}
+
+ion-label {
+    --color: #fff;
+    --highlight-color-focused: #fff;
+}
+
+.icon {
+    color: #fff;
+}
+
+ion-input {
+    --color: #fff
+}
+
+.sc-ion-input-md-h .sc-ion-input-md-s .md .hydrated .has-value .has-focus {
+    color: #fff;
+}
+
+ion-toggle {
+    --background-checked: #fff;
+    --handle-background-checked: #FFD400;
+}
+
+.txt-span {
+    color: #fff;
+}
+
+.btn-init {
+    --background: #FF8B00;
+}

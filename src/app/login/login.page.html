@@ -1,0 +1,48 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="img-center">
+        <ion-img class="logo" [src]='logoWhite'></ion-img>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-icon class='icon' name="person" slot="start"></ion-icon>
+          <ion-label color='theme' class="icon" position='floating'>Login</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon class='icon' name="lock" slot="start"></ion-icon>
+          <ion-label color='theme' class="icon" position='floating'>Senha</ion-label>
+          <ion-input type='password'></ion-input>
+        </ion-item>
+        <ion-item lines='none'>
+          <ion-toggle mode='md' slot="end"></ion-toggle>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="text-center" style="margin-bottom: 6%;">
+        <span class="txt-span">Memorizar senha</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button style="margin-bottom: 5%;" size='large' shape='round' class="btn-init" expand='block'>Entrar
+        </ion-button>
+        <ion-button size='large' shape='round' class="btn-init" expand='block' routerLink='/cadastro'>Cadastrar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="text-center" style="margin-bottom: 6%;">
+        <span class="txt-span" routerLink='/esqueceu-senha'>Esqueceu sua senha?</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
