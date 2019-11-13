@@ -45,3 +45,19 @@ ion-label {
 .icon {
     color: #b2b2b2;
 }
+
+p {
+    color: #b2b2b2;
+    font-size: 1.2rem;
+}
+
+b {
+    color: #b2b2b2;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+ion-toggle {
+    --background-checked: #fff;
+    --handle-background-checked: #FFD400;
+}
