@@ -1,42 +1,49 @@
-<ion-header>
-  <ion-toolbar color="primary">
-  
-  </ion-toolbar>
-</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="img-center">
+        <ion-img class="logo" [src]='logoWhite'></ion-img>
+      </ion-col>
+    </ion-row>
 
-<ion-content>
-    <ion-card class="card-form ion-padding">
-
-        <span><p>Login</p></span>
-  
-        <ion-item class="ion-margin-top" lines="none">
-          <ion-icon name="mail" slot="end"></ion-icon>
-          <ion-input type="text" placeholder="E-mail" value="" [(ngModel)]="user.email"></ion-input>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-icon class='icon' name="person" slot="start"></ion-icon>
+          <ion-label color='theme' class="icon" position='floating'>Login</ion-label>
+          <ion-input [(ngModel)]="user.email"></ion-input>
         </ion-item>
-  
-        <ion-item class="ion-margin-top" lines="none">
-          <ion-icon name="key" slot="end"></ion-icon>
-          <ion-input type="password"  placeholder="Senha" value="" [(ngModel)]="user.password"></ion-input>
-        </ion-item>  
-  
-        <div id="opcao">
-          <ion-label>Memorizar senha</ion-label>
-          <ion-toggle color="light" mode="md"></ion-toggle>
-        </div>
-  
-        <ion-button class="ion-margin-top" (click)="logar()" color="light" expand="block">
-            Entrar
-        </ion-button>
-  
-        <ion-button class="ion-margin-top" (click)="cadastrar()" expand="block" color="light">
-            Cadastre-se
-        </ion-button>
-  
-        <ion-button id="button-text" expand="block" fill="clear" [routerLink]="['/reset-password']">
-          <p>Esqueceu sua senha?</p>
-        </ion-button>
-        
-        
-      </ion-card>
-</ion-content>
+        <ion-item>
+          <ion-icon class='icon' name="lock" slot="start"></ion-icon>
+          <ion-label color='theme' class="icon" position='floating'>Senha</ion-label>
+          <ion-input type='password' [(ngModel)]="user.password"></ion-input>
+        </ion-item>
+        <!-- <ion-item lines='none'>
+          <ion-toggle mode='md' slot="end"></ion-toggle>
+        </ion-item> -->
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col class="text-center" style="margin-bottom: 6%;">
+        <span class="txt-span">Memorizar senha</span>
+      </ion-col>
+    </ion-row> -->
 
+    <ion-row>
+      <ion-col>
+        <ion-button style="margin-bottom: 5%;" size='large' shape='round' class="btn-init" expand='block'
+        (click)="logar()">Entrar
+        </ion-button>
+        <ion-button size='large' shape='round' class="btn-init" expand='block' (click)="cadastrar()">Cadastrar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="text-center" style="margin-bottom: 6%;">
+        <span class="txt-span" [routerLink]="['/reset-password']">Esqueceu sua senha?</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

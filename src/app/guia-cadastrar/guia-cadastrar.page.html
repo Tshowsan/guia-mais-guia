@@ -1,23 +1,52 @@
 <ion-header>
-  <ion-toolbar color="primary">
-   <!--  <ion-title> Cadastro de Usuário </ion-title> -->
+  <ion-toolbar mode='ios' class="content">
     <ion-buttons slot="start">
-        <ion-back-button defaultHref="/login"></ion-back-button>
-      </ion-buttons>
+      <ion-back-button defaultHref="/login" style="color: #fff;"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon style="font-size: 80px;" name='person'></ion-icon><br>Cadastro
+    </ion-title>
   </ion-toolbar>
 </ion-header>
+<!-- <ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-input placeholder='Nome'></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder='Email'></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder='Telefone'></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder='Senha'></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
 
+    <ion-row>
+      <ion-col>
+        <ion-button style="margin-bottom: 5%;" size='large' class="btn-init" expand='block'>Cadastrar
+        </ion-button>
+        <ion-button size='large' class="btn-init" expand='block' routerLink='/login'>Cancelar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->
 <ion-content>
-
-    
     <form [formGroup]="guiaCadastrarForm">
-
-        <ion-card class="cadastrar-form ion-padding">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
     
-          <span><p>Cadastro</p></span>
+          <!-- <span><p>Cadastro</p></span> -->
     
           <ion-item class="ion-margin-top" lines="none">
-            <ion-icon name="create" slot="end"></ion-icon>
+            <!-- <ion-icon name="create" slot="end"></ion-icon> -->
             <ion-input type="text" placeholder="Nome" formControlName="nome" [(ngModel)]="user.nome"></ion-input>
             <div class="errors" *ngIf="guiaCadastrarForm.controls.nome.errors">
               <h6 *ngIf="guiaCadastrarForm.controls.nome.errors.required"></h6>
@@ -27,7 +56,7 @@
           </ion-item>
 
           <ion-item class="ion-margin-top" lines="none">
-              <ion-icon name="create" slot="end"></ion-icon>
+              <!-- <ion-icon name="create" slot="end"></ion-icon> -->
               <ion-input type="text" placeholder="Sobrenome" formControlName="sobrenome" [(ngModel)]="user.sobrenome"></ion-input>
               <div class="errors" *ngIf="guiaCadastrarForm.controls.sobrenome.errors">
                 <h6 *ngIf="guiaCadastrarForm.controls.sobrenome.errors.required"></h6>
@@ -37,7 +66,7 @@
             </ion-item>
     
           <ion-item class="ion-margin-top"  lines="none">
-            <ion-icon name="mail" slot="end"></ion-icon>
+            <!-- <ion-icon name="mail" slot="end"></ion-icon> -->
             <ion-input type="email" placeholder="E-mail" formControlName="email" [(ngModel)]="user.email"></ion-input>
             <div class="errors" *ngIf="guiaCadastrarForm.controls.email.errors">
               <h6 *ngIf="guiaCadastrarForm.controls.email.errors.required"></h6>
@@ -46,7 +75,7 @@
           </ion-item>
     
           <ion-item class="ion-margin-top" lines="none">
-            <ion-icon name="call" slot="end"></ion-icon>
+            <!-- <ion-icon name="call" slot="end"></ion-icon> -->
             <ion-input type="number" placeholder="Telefone" formControlName="telefone" [(ngModel)]="user.telefone"></ion-input>
             <div class="errors" *ngIf="guiaCadastrarForm.controls.telefone.errors">
               <h6 *ngIf="guiaCadastrarForm.controls.telefone.errors.required"></h6>
@@ -56,7 +85,7 @@
           </ion-item>
     
           <ion-item class="ion-margin-top" lines="none">
-              <ion-icon name="create" slot="end"></ion-icon>
+              <!-- <ion-icon name="create" slot="end"></ion-icon> -->
               <ion-input type="text" placeholder="Cadastur" formControlName="cadastur" [(ngModel)]="user.cadastur"></ion-input>
               <div class="errors" *ngIf="guiaCadastrarForm.controls.cadastur.errors">
                 <h6 *ngIf="guiaCadastrarForm.controls.cadastur.errors.required"></h6>
@@ -64,7 +93,7 @@
               </div>
             </ion-item>
             <ion-item class="ion-margin-top" lines="none">
-                <ion-icon name="create" slot="end"></ion-icon>
+                <!-- <ion-icon name="create" slot="end"></ion-icon> -->
                 <ion-input type="text" placeholder="Linguas" formControlName="linguas" [(ngModel)]="user.linguas"></ion-input>
                 <div class="errors" *ngIf="guiaCadastrarForm.controls.linguas.errors">
                   <h6 *ngIf="guiaCadastrarForm.controls.linguas.errors.required"></h6>
@@ -72,21 +101,30 @@
                   <h6 *ngIf="guiaCadastrarForm.controls.linguas.errors.maxlength">O Nome deve conter no maximo 50 caracteres</h6>
                 </div>
               </ion-item>
-          <ion-item class="ion-margin-top" lines="none">
-              <ion-icon name="key" slot="end"></ion-icon>
-                  <ion-input type="password" placeholder="Senha" formControlName="password" [(ngModel)]="user.password"></ion-input>
+            <ion-item class="ion-margin-top" lines="none">
+              <!-- <ion-icon name="key" slot="end"></ion-icon> -->
+                <ion-input type="password" placeholder="Senha" formControlName="password" [(ngModel)]="user.password"></ion-input>
              <div class="errors" *ngIf="guiaCadastrarForm.controls.password.errors">
                 <h6 *ngIf="guiaCadastrarForm.controls.password.errors.required"></h6>
                 <h6 *ngIf="guiaCadastrarForm.controls.password.errors.minlength">A senha deve conter no minimo 6 caracteres</h6>
                 <h6 *ngIf="guiaCadastrarForm.controls.password.errors.maxlength">A senha deve conter no maximo 12 caracteres</h6>
               </div>
             </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button style="margin-bottom: 5%;" size='large' class="btn-init" expand='block' (click)="register()" [disabled]="!guiaCadastrarForm.valid">Cadastrar
+            </ion-button>
+            <!-- <ion-button size='large' class="btn-init" expand='block' routerLink='/login'>Cancelar
+            </ion-button> -->
+          </ion-col>
+        </ion-row>
     
-          <ion-button class="ion-margin-top" expand="block" color="light" (click)="register()" [disabled]="!guiaCadastrarForm.valid">
+          <!-- <ion-button class="ion-margin-top" expand="block" color="light" (click)="register()" [disabled]="!guiaCadastrarForm.valid">
               Cadastrar
-          </ion-button>
-    
-        </ion-card>
-    
+          </ion-button> -->
+        </ion-grid>
       </form>
 </ion-content>
