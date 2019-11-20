@@ -11,4 +11,5 @@ export interface User {
     ativo?: boolean;
     plantao?: boolean;
     foto?: string;
+    avaliacao?: number;
 }

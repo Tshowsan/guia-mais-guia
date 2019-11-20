@@ -6,7 +6,7 @@
     <ion-title>
       <ion-row>
         <ion-col class="title">
-          Perfil<br>
+          Detalhes do Guia<br>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -21,7 +21,7 @@
         <ion-col class="title-desc">
           <ion-label>
             <h2>{{user.nome}} {{user.sobrenome}}</h2>
-            <h2>"Média"</h2>
+            <h2>{{user.avaliacao}}<ion-icon name='star'></ion-icon></h2>
             <h2>enchendo linguiça</h2>
             <!-- <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#fff"
               defaultColor="#fff" readonly="true" rating="5" fontSize="22px">
@@ -43,6 +43,15 @@
     <ion-grid>
       <ion-row>
         <ion-col>
+            <ion-item>
+                <ion-label>Ativo</ion-label>
+                <ion-toggle [(ngModel)]="user.ativo" (click)="ativoUpdate()"></ion-toggle>
+              </ion-item>
+        
+              <ion-item>
+                <ion-label>Plantão</ion-label>
+                <ion-toggle [(ngModel)]="user.plantao" (click)="updateUser()" [disabled]="!user.ativo == true"></ion-toggle>
+              </ion-item>
           <ion-item>
             <ion-label>
               <ion-icon class='icon' name="lock" slot="start"></ion-icon><b> E-mail</b>
