@@ -1,5 +1,5 @@
 ion-content {
-    --background: linear-gradient(207deg, rgba(90,196,249,1) 0%, rgba(0,142,244,1) 48%);
+    --background: linear-gradient(207deg, rgba(226, 139, 29, 1) 0%, rgba(255, 224, 1, 1) 84%);
 }
 
 .logo {
@@ -41,7 +41,7 @@ ion-input {
 
 ion-toggle {
     --background-checked: #fff;
-    --handle-background-checked: #279DEC;
+    --handle-background-checked: #FFD400;
 }
 
 .txt-span {
@@ -49,5 +49,5 @@ ion-toggle {
 }
 
 .btn-init {
-    --background: #72C2F9;
+    --background: #FF8B00;
 }
