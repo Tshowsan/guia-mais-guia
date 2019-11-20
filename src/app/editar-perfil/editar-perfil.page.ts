@@ -10,6 +10,7 @@ import { LoadingController, ToastController } from '@ionic/angular';
   styleUrls: ['./editar-perfil.page.scss'],
 })
 export class EditarPerfilPage implements OnInit {
+  profile = 'https://ionicframework.com/docs/demos/api/avatar/avatar.svg'
 
   public user: User = {};
   private userSubscription: Subscription;
