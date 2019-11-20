@@ -20,6 +20,7 @@ export class PerfilAlterarFotoPage implements OnInit {
   public downloadUrl: Observable<string>;
   public user: User = {} ;
   private loading: any;
+  profile = 'https://ionicframework.com/docs/demos/api/avatar/avatar.svg'
   
   userSubscription: Subscription
   constructor(
