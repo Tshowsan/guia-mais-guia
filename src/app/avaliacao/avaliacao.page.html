@@ -10,28 +10,11 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <!-- <ion-avatar slot="start" button [routerLink]="['/perfil-alterar-foto']">
-      <img [src]="user.foto">
-    </ion-avatar> -->
+
   <ion-grid>
-        <!-- <ion-item>
-          <ion-label>
-            <p>Ativo</p>
-          </ion-label>
-          <ion-toggle [(ngModel)]="user.ativo" (click)="ativoUpdate()"></ion-toggle>
-        </ion-item>
 
-        <ion-item>
-          <ion-label>
-            <p>Plantão</p>
-          </ion-label>
-          <ion-toggle [(ngModel)]="user.plantao" (click)="updateUser()" [disabled]="!user.ativo == true"></ion-toggle>
-        </ion-item> -->
-
-        <app-star-review></app-star-review>
-        <app-comments></app-comments>
+    <app-star-review></app-star-review>
+    <app-comments></app-comments>
   </ion-grid>
-  <!-- <ion-button shape="round" expand="expand" color="success" [routerLink]="['/editar-perfil']">
-      Alterar
-  </ion-button> -->
+
 </ion-content>
