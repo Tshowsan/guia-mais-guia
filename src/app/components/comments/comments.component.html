@@ -1,16 +1,21 @@
-<ion-row>
-  <ion-col>
-  <ion-label>
-    <h1 class="title-com">Comentários dos usuários</h1>
-  </ion-label>
-  
-  <ion-item *ngFor="let comment of comments | async">
-      <ion-avatar slot="start">
+<ion-grid padding>
+  <ion-row>
+    <ion-col>
+      <ion-label>
+        <h1 class="title-com">Comentários dos usuários</h1>
+      </ion-label>
+
+      <ion-item *ngFor="let comment of comments | async">
+        <ion-avatar slot="start">
           <img [src]="comment.userFoto">
         </ion-avatar>
-  "{{ comment.userName }}" comentou para "{{ comment.guiaName }}" {{ comment.text }}
-  
-  </ion-item>
- </ion-col>
-</ion-row>
-  
+        <ion-label>
+          <p>
+            "{{ comment.userName }}" comentou para "{{ comment.guiaName }}" {{ comment.text }}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
