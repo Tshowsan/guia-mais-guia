@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'perfil-alterar-foto', loadChildren: './pages/perfil-alterar-foto/perfil-alterar-foto.module#PerfilAlterarFotoPageModule',canActivate:[AuthGuard] },  { path: 'home-menu', loadChildren: './home-menu/home-menu.module#HomeMenuPageModule' },
   { path: 'lista-guias', loadChildren: './lista-guias/lista-guias.module#ListaGuiasPageModule' },
   { path: 'detalhe-guia', loadChildren: './detalhe-guia/detalhe-guia.module#DetalheGuiaPageModule' },
+  { path: 'avaliacao', loadChildren: './avaliacao/avaliacao.module#AvaliacaoPageModule' },
 
 
   

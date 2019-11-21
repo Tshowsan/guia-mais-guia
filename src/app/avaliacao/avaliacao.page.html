@@ -6,7 +6,7 @@
     <ion-title>
       <ion-row>
         <ion-col class="title">
-          Detalhes do Guia<br>
+          Avaliações<br>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -44,7 +44,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-item>
+        <!-- <ion-item>
           <ion-label>
             <p>Ativo</p>
           </ion-label>
@@ -56,7 +56,7 @@
             <p>Plantão</p>
           </ion-label>
           <ion-toggle [(ngModel)]="user.plantao" (click)="updateUser()" [disabled]="!user.ativo == true"></ion-toggle>
-        </ion-item>
+        </ion-item> -->
         <ion-item>
           <ion-label>
             <ion-icon class='icon' name="lock" slot="start"></ion-icon><b> E-mail</b>
@@ -95,8 +95,8 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <!-- <app-star-review></app-star-review> -->
-    <!-- <app-comments></app-comments> -->
+    <app-star-review></app-star-review>
+    <app-comments></app-comments>
   </ion-grid>
   <!-- <ion-button shape="round" expand="expand" color="success" [routerLink]="['/editar-perfil']">
       Alterar
