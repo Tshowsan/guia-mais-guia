@@ -24,10 +24,14 @@ const routes: Routes = [
   { path: 'reset-password', loadChildren: './reset-password/reset-password.module#ResetPasswordPageModule' },
   { path: 'editar-perfil', loadChildren: './editar-perfil/editar-perfil.module#EditarPerfilPageModule' },
   { path: 'change-password', loadChildren: './change-password/change-password.module#ChangePasswordPageModule' },
-  { path: 'perfil-alterar-foto', loadChildren: './pages/perfil-alterar-foto/perfil-alterar-foto.module#PerfilAlterarFotoPageModule',canActivate:[AuthGuard] },  { path: 'home-menu', loadChildren: './home-menu/home-menu.module#HomeMenuPageModule' },
+  { path: 'perfil-alterar-foto', loadChildren: './pages/perfil-alterar-foto/perfil-alterar-foto.module#PerfilAlterarFotoPageModule',canActivate:[AuthGuard] },
+  { path: 'home-menu', loadChildren: './home-menu/home-menu.module#HomeMenuPageModule' },
   { path: 'lista-guias', loadChildren: './lista-guias/lista-guias.module#ListaGuiasPageModule' },
   { path: 'detalhe-guia', loadChildren: './detalhe-guia/detalhe-guia.module#DetalheGuiaPageModule' },
   { path: 'avaliacao', loadChildren: './avaliacao/avaliacao.module#AvaliacaoPageModule' },
+  { path: 'chat', loadChildren: './chat/chat.module#ChatPageModule',canActivate:[AuthGuard]  },
+  { path: 'mensagens', loadChildren: './mensagens/mensagens.module#MensagensPageModule',canActivate:[AuthGuard]  },
+  { path: 'mensagens/:id', loadChildren: './mensagens/mensagens.module#MensagensPageModule',canActivate:[AuthGuard]  },
 
 
   
