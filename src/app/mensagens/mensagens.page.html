@@ -27,7 +27,7 @@
     <ion-input placeholder="Digite uma mensagem" formControlName="text" [(ngModel)]="text"></ion-input>
     
     <ion-button [disabled]="!mensagensForm.valid" (click)="mensagensHandler(text)" fill="clear" icon-only slot="end">
-      <ion-icon name="send"></ion-icon>
+      <ion-icon name="send" style='color: #707070;'></ion-icon>
     </ion-button>
   </ion-item>
 </form>
